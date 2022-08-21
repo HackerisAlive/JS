@@ -8,6 +8,8 @@ console.log(str.slice(-num, -30))
 console.log(str)
 console.log(str.replace(/ayush/i, "HackerisAlive")) // /i is case insensitive
 console.log(str.replace(/Ayush/g, "HackerisAlive")) // /g is global match
+//console.log(str.replace(/ayush/g, "HackerisAlive")) // no change bcz it is case sensitive
+console.log(str.replace(/ayush/ig, "HackerisAlive")) // it is case insensitive and global match
 console.log(str.toUpperCase())
 console.log(str.toLowerCase())
 //A string can be converted to an array with the split() method
