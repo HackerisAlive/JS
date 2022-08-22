@@ -53,6 +53,9 @@ function update() {
       "Age": age
     }
     )
+    // splice(index, (0/1), data)
+    // index is the location
+    // 0 is for not to override just shift by one index(old element will be not deleted and on next spot new element is entered) and 1 is for override(old element will be deleted and new element will be place on same index)
     console.log("Element is Updated")
   } else {
     console.log("Element is not Updated")
