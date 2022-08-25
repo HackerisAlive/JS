@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        min-height: 100vh;
+        padding: 20px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 3px solid white;
+      }
+
+      div {
+        display: flex;
+        margin: 0.5rem;
+        padding: 1rem;
+        border: 3px solid black;
+        flex-grow: 1;
+      }
+
+      .grandparent {
+        height: 600px;
+        width: 600px;
+        margin: 0 auto;
+        background-color: hsl(0, 50%, 50%);
+        flex-direction: column;
+      }
+
+      .parent {
+        height: 250px;
+        align-items: center;
+        background-color: hsl(100, 50%, 50%);
+      }
+
+      .child {
+        height: 200px;
+        background-color: hsl(200, 50%, 50%);
+      }
+
+      .btn {
+        width: 600px;
+        height: 100px;
+        margin: 20px auto;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      button {
+        width: 170px;
+        height: 30px;
+        background-color: dodgerblue;
+        border: 1px solid darkblue;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="grandparent" id="grandparent-id">
+        <div class="parent">
+          <div class="child" id="chone"></div>
+          <div class="child"></div>
+        </div>
+        <div class="parent">
+          <div class="child"></div>
+          <div class="child"></div>
+        </div>
+      </div>
+      <div class="btn">
+        <button onclick="ide()">getElementById</button>
+        <button onclick="cls()">getElementsByClassName</button>
+        <button onclick="qs()">querySelector</button>
+        <button onclick="qsa()">querySelectorAll</button>
+        <button onclick="ch()">children</button>
+        <button onclick="pn()">parent</button>
+        <button onclick="next()">nextElementSibling</button>
+        <button onclick="previous()">previousElementSibling</button>
+      </div>
+    </div>
+
+    <script>
+      function ide() {
+        let grandparent = document.getElementById("grandparent-id");
+        grandparent.style.backgroundColor = "#111";
+      }
+
+      function cls() {
+        //let parent = Array.from(document.getElementsByClassName("parent")) // convert Collection into Array
+        //parent.forEach(ele => ele.style.backgroundColor = "#111") // call backgroundcolor on each element
+        let parent = document.getElementsByClassName("parent");
+        parent[0].style.backgroundColor = "#111";
+        parent[1].style.backgroundColor = "#111";
+      }
+
+      function qs() {
+        let parent = document.querySelector(".parent");
+        parent.style.backgroundColor = "hsl(100, 50%, 50%)";
+      }
+
+      function qsa() {
+        let parent = document.querySelectorAll(".parent");
+        parent.forEach((ele) => (ele.style.backgroundColor = "#555"));
+      }
+
+      function ch() {
+        let grandparent = document.querySelector(".grandparent");
+        let parent = Array.from(grandparent.children);
+        parent.forEach(
+          (ele) => (ele.style.backgroundColor = "hsl(100, 50%, 50%)")
+        );
+      }
+
+      function pn() {
+        let chone = document.getElementById("chone");
+        let parent = chone.parentElement;
+        parent.style.backgroundColor = "#000";
+      }
+
+      function next() {
+        let chone = document.getElementById("chone");
+        chone.nextElementSibling.style.backgroundColor = "#000";
+      }
+
+      function previous() {
+        let chone = document.getElementById("chone");
+        let chnext = chone.nextElementSibling;
+        chnext.previousElementSibling.style.backgroundColor = "#000";
+      }
+    </script>
+  </body>
+</html>
